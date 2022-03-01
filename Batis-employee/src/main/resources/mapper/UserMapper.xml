@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.pojo.User">
+
+    <select id="findById" parameterType="Integer" resultType="com.itheima.pojo.User">
+        SELECT * FROM employee WHERE id=#{value}
+    </select>
+
+    <delete id="delectById" parameterType="Integer">
+        delete from employee where id=#{id}
+    </delete>
+
+    <update id="updateById" parameterType="User">
+        UPDATE employee SET age=#{age},position =#{position} WHERE id=#{id}
+    </update>
+
+    <select id="getAll" resultType="User">
+        select * FROM employee
+    </select>
+
+    <insert id="addUser" parameterType="com.itheima.pojo.User">
+        INSERT INTO employee(name,age,position) VALUES(#{name},#{age},#{position})
+    </insert>
+
+
+</mapper>
